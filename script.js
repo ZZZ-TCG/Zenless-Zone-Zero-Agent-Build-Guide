@@ -1,12 +1,12 @@
 // Load and display characters on main page
 async function loadCharacters() {
     try {
-        const response = await fetch('characters.json');
+        const response = await fetch('https://raw.githubusercontent.com/ZZZ-TCG/Zenless-Zone-Zero-Agent-Build-Guide/main/characters.json');
         const data = await response.json();
         displayCharacters(data.characters);
     } catch (error) {
         console.error('Error loading characters:', error);
-        document.getElementById('character-list').innerHTML = '<p>Error loading agents. Please refresh the page.</p>';
+        document.getElementById('character-list').innerHTML = '<p>Error loading agents. Please try again.</p>';
     }
 }
 
@@ -23,7 +23,7 @@ function displayCharacters(characters) {
         card.innerHTML = `
             <div class="card-header">
                 <h3>${character.name}</h3>
-                <span class="rarity rarity-${character.rarity.toLowerCase()}">${character.rarity}</span>
+                <span class="rarity rarity-${character.rarity ? character.rarity.toLowerCase() : 's'}">${character.rarity || 'S'}</span>
             </div>
             <p class="role">${character.role}</p>
             <p class="element">Element: ${character.element}</p>
