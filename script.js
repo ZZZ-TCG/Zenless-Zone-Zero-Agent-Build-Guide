@@ -20,16 +20,18 @@ function displayCharacters(characters) {
         const card = document.createElement('a');
         card.href = `agent-detail.html?id=${character.id}`;
         card.className = 'character-card';
+        
+        // Placeholder image - using Sigrid's image for all
+        const imageUrl = 'https://raw.githubusercontent.com/ZZZ-TCG/Zenless-Zone-Zero-Agent-Build-Guide/main/assets/sigrid.png';
+        
         card.innerHTML = `
-            <div class="card-header">
-                <h3>${character.name}</h3>
-                <span class="rarity rarity-${character.rarity ? character.rarity.toLowerCase() : 's'}">${character.rarity || 'S'}</span>
+            <img src="${imageUrl}" alt="${character.name}" class="card-image" onerror="this.src='https://via.placeholder.com/180x280?text=${character.name}'">
+            <div class="card-badges">
+                <span class="rank-badge">S-Rank</span>
+                <div class="specialty-icon">⚔️</div>
             </div>
-            <p class="role">${character.role}</p>
-            <p class="element">Element: ${character.element}</p>
-            <p class="description">${character.description}</p>
-            <div class="card-footer">
-                <span class="view-link">View Build →</span>
+            <div class="card-overlay">
+                <h3>${character.name}</h3>
             </div>
         `;
         characterList.appendChild(card);
