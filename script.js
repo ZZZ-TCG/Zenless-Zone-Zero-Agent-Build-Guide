@@ -1,4 +1,4 @@
-// Load and display characters
+// Load and display characters on main page
 async function loadCharacters() {
     try {
         const response = await fetch('characters.json');
@@ -12,21 +12,25 @@ async function loadCharacters() {
 
 function displayCharacters(characters) {
     const characterList = document.getElementById('character-list');
+    if (!characterList) return;
+    
     characterList.innerHTML = '';
 
     characters.forEach(character => {
-        const card = document.createElement('div');
+        const card = document.createElement('a');
+        card.href = `agent-detail.html?id=${character.id}`;
         card.className = 'character-card';
         card.innerHTML = `
-            <h3>${character.name}</h3>
-            <span class="role">${character.role}</span>
-            <p><strong>Rarity:</strong> ${character.rarity}</p>
-            <p><strong>Element:</strong> ${character.element}</p>
-            <p>${character.description}</p>
-            <p><strong>Best Weapons:</strong> ${character.bestWeapons.join(', ')}</p>
-            <p><strong>Drive:</strong> ${character.bestDrive}</p>
-            <p><strong>Team Comp:</strong> ${character.recommendedTeam}</p>
-            <p><strong>Notes:</strong> ${character.notes}</p>
+            <div class="card-header">
+                <h3>${character.name}</h3>
+                <span class="rarity rarity-${character.rarity.toLowerCase()}">${character.rarity}</span>
+            </div>
+            <p class="role">${character.role}</p>
+            <p class="element">Element: ${character.element}</p>
+            <p class="description">${character.description}</p>
+            <div class="card-footer">
+                <span class="view-link">View Build →</span>
+            </div>
         `;
         characterList.appendChild(card);
     });
