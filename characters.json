@@ -1,0 +1,40 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Ellen Joe",
+      "role": "Attacker",
+      "rarity": "S",
+      "element": "Ice",
+      "description": "Swift and deadly ice attacker",
+      "bestWeapons": ["Sword A", "Sword B"],
+      "bestDrive": "Drive Chain Combo",
+      "recommendedTeam": "Support + Buffer + Ellen",
+      "notes": "Focus on crit damage and attack speed"
+    },
+    {
+      "id": 2,
+      "name": "Corin Wickes",
+      "role": "Support",
+      "rarity": "S",
+      "element": "Electric",
+      "description": "Utility support with damage buffs",
+      "bestWeapons": ["Gauntlets A", "Gauntlets B"],
+      "bestDrive": "Support Drive",
+      "recommendedTeam": "Corin + DPS + Buffer",
+      "notes": "Prioritize energy recovery and buff uptime"
+    },
+    {
+      "id": 3,
+      "name": "Billy Kid",
+      "role": "Attacker",
+      "rarity": "A",
+      "element": "Fire",
+      "description": "Aggressive fire attacker with good AoE",
+      "bestWeapons": ["Assault Rifle A", "Assault Rifle B"],
+      "bestDrive": "Area Burst",
+      "recommendedTeam": "Buffer + Billy + Support",
+      "notes": "Build for attack and penetration"
+    }
+  ]
+}
